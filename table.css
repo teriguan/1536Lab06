@@ -1,3 +1,4 @@
+/*Service Description Table CSS*/
 table {
     background-color: #ffffff;
     border: 1px solid #5c743d;
@@ -8,6 +9,7 @@ table {
     border-spacing: 0;
 }
 
+/*Table Details and Table Headings*/
 td, th {
     padding-left: 1em;
     padding-right: 1em;
@@ -15,14 +17,17 @@ td, th {
     padding-bottom: .5em;
 }
 
+/*Table Heading*/
 th {
     width: 25%;
 }
 
+/*Even rows of table*/
 tr:nth-of-type(even) {
     background-color: #F6F1DE;
 }
 
+/*Embedded Video*/
 iframe {
     margin-left: 4.5em;
     margin-top: 1em;
