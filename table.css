@@ -1,15 +1,24 @@
 table {
     background-color: #ffffff;
-    border: 1px solid #000000;
+    border: 1px solid #5c743d;
     width: 425px;
     margin-left: 4.5em;
     margin-top: 1em;
     margin-bottom: 2em;
+    border-spacing: 0;
 }
-td {
-    border: 1px soild #000000;
-    padding: .5em;
+
+td, th {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
 }
+
+th {
+    width: 25%;
+}
+
 tr:nth-of-type(even) {
     background-color: #F6F1DE;
 }

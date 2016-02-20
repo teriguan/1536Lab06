@@ -112,6 +112,7 @@ div .header_interior img {float:left; margin-right:10px;}
 	margin-bottom:25px;
 	border-left: solid 1px #E0D0B1;
 	padding-left: 10px;
+
 }
 
 .hr{
@@ -164,4 +165,7 @@ h1 {
 	margin-left:20px;
 }
 
+.brdiv{
+	clear:both;
+}
 
