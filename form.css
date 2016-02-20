@@ -1,42 +1,53 @@
+/* provides color to asterisk */
 span {
 	color:#b30000;
 }
 
+/* applies focus to selected input */
 input[type=text]:focus {
     background-color: lightgrey;
 }
 
+/* moves the entire form element a bit to the right and away from paragraph */
 #join {
 	padding: 2px;
 	margin-left:5px;
 }
 
+/* provides some spacing between the input or select element and the label */
 #join select, input{
 	margin-top:3px;
 }
 
+/* styles the sub text below some of the input elements */
 #join p {
 	font-size:80%;
 	color:grey;
 	font-weight:200;
 	padding:0;
 	margin:0;
-    padding-top:3px;
+	padding-top:3px;
 }
 
+/* styles the label to be bolded and slightly smaller than the existing body font */
 #join label {
 	font-size:90%;
 	font-weight:bold;
 }
 
-.subtext {
+/* applied to the div containing the input and corresponding sub text, 
+this class makes it displayed horizontally */
+div .subtext {
 	display:inline-block;
 }
 
-.spacing {
+/* applied to an empty div to create spacing between each label and their 
+corresponding input */
+div .spacing {
 	margin-bottom:5px;
 }
 
+/* applies some spacing around the radio buttons */
 .passed {
 	margin:10px;
 }

@@ -60,8 +60,10 @@
 		<div class="hr"></div>
 		<h2>Join us now!</h2>
 		<p>To join this dynamic group of web developers, fill in the application below and you will be contacted shortly. </p>
-        <div id ="join">
+        <div id ="join"> <!-- Join Form -->
 			<form action = "http://webdevfoundations.net/scripts/formdemo.asp" method = "post">
+				
+				<!-- Drop down list for available positions interested -->
 				<label>Which position are you applying for?&nbsp;<span>*</span></label><br>
 					<select name="position">
 						<option value="manager">Project Manager</option>
@@ -69,42 +71,75 @@
 						<option value="developer">Web Developer</option>
 						<option value="admin">Database Administrator</option>
 					</select>
-				<div class="spacing"></div><br>
+					
+				<!-- Empty div for spacing -->
+				<div class="spacing"></div><br> 
+				
+				<!-- Input checking if applicant has passed the course -->
 				<label>Passed Comp 1536?&nbsp;<span>*</span></label><br>
 					<input class="passed" type="radio" name="radio" value="yes">Yes<br>
 					<input class="passed" type="radio" name="radio" value="no">No<br>
-				<div class="spacing"></div><br>
+				
+				<!-- Empty div for spacing -->
+				<div class="spacing"></div><br> 
+				
+				<!-- Input for earliest start date in MM/DD/YYYY -->
 				<label>Earliest start date?&nbsp;<span>*</span></label><br>
 					<div class="subtext"><input type="text" name="month" size="2"> /<p>MM</p></div>
 					<div class="subtext"><input type="text" name="day" size="2"> /<p>DD</p></div>
 					<div class="subtext"><input type="text" name="year" size="5"><p>YYYY</p></div>
-				<div class="spacing"></div><br>
+				
+				<!-- Empty div for spacing -->
+				<div class="spacing"></div><br> 
+				
+				<!-- Input for a URL linking to portfolio -->
 				<label>Portfolio URL</label><br>
-					<input type="url" name="portfolio" size="60" value="https://">
-				<div class="spacing"></div><br>
+					<input type="url" name="portfolio" size="60" placeholder="https://">
+					
+				<!-- Empty div for spacing -->
+				<div class="spacing"></div><br> 
+				
+				<!-- Input for a resume in PDF or Word format -->
 				<label>Attach Resume</label><br>
-					<input type="file" name="resume" id="resume"> 
-				<br><p>Word or PDF Documents Only</p><br>
+					<input type="file" name="resume" id="resume"> 					
+					<br><p>Word or PDF Documents Only</p><br> <!-- sub text -->
+				
+				<!-- Input for full name -->
 				<label>Name&nbsp;<span>*</span></label><br>
 					<div class="subtext"><input type="text" name="first" size="10"><p>First</p></div>
 					<div class="subtext"><input type="text" name="last" size="20"><p>Last</p></div>
-				<div class="spacing"></div><br>
+				
+				<!-- Empty div for spacing -->
+				<div class="spacing"></div><br> 
+				
+				<!-- Input for email -->
 				<label>Email Address&nbsp;<span>*</span></label><br>
 					<input type="email" name="email" size="60">
-				<div class="spacing"></div><br>
+					
+				<!-- Empty div for spacing -->
+				<div class="spacing"></div><br> 
+				
+				<!-- Input for phone number -->
 				<label>Phone&nbsp;<span>*</span></label><br>
 					<div class="subtext"><input type="text" name="area" size="5"><p>(###)</p></div>
 					<div class="subtext"><input type="text" name="middle" size="5"><p>###</p></div>
 					<div class="subtext"><input type="text" name="end" size="7"><p>####</p></div>
-				<div class="spacing"></div><br>
+				
+				<!-- Empty div for spacing -->
+				<div class="spacing"></div><br> 
+				
+				<!-- Input for additional information -->
 				<label>Any additional information for us</label>
-					<textarea name="extra" rows="10" cols="50"></textarea><br>
+					<textarea name="extra" rows="10" cols="45"></textarea><br>
+					
+				<!-- Submit form -->	
 				<input type="submit" value="Submit">
 			</form>
 		</div>
         </div> <!-- right_column -->
       </div> <!-- content_interior -->
-      <br clear="all"/>
+      <br >
+	  <div class="brdiv"></div>
     </div> <!-- content_body -->
 	
 	<!-- footer-->
@@ -115,7 +150,7 @@
           </a>
         </div>
       </div> <!-- footer-inner -->
-      <br clear="all"/>
+      <br>
     </div> <!-- footer -->
   </body>
 </html>
