@@ -2,9 +2,10 @@
 	<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>CST Web Creations - Join Us
+		<title>Sample layout rendering
 		</title>
 		<link href="style.css" rel="stylesheet" type="text/css"/>
+		<link href="form.css" rel="stylesheet" type="text/css"/>
 	</head>
   
   <body>
@@ -24,23 +25,23 @@
           <div class="navigation">
             <ul class="markermenu">
               <li>
-                <a href="index.html">Home
+                <a href="/index.html">Home
                 </a>
               </li>
               <li>
-                <a href="services.html">Services
+                <a href="/index.html">Services
                 </a>
               </li>
               <li>
-                <a href="index.html">Portfolio
+                <a href="/index.html">Portfolio
                 </a>
               </li>
               <li>
-                <a href="joinus.html">Join Us
+                <a href="/form.html">Join us
                 </a>
               </li>
               <li class="last-child">
-                <a href="index.html">Contact Us
+                <a href="/index.html">Contact Us
                 </a>
               </li>		
             </ul> 
@@ -53,54 +54,68 @@
         </div> <!-- left_column -->
 		
         <div class="right_column">
-          <h1>Who we are
-          </h1>
-          <p>We are a group of CST students, past and present, offering our website creation services to non-profit organizations in the lower mainland. We work in teams made up of experts in design. development and project management.
-          </p>
-          <div class="hr">
-          </div>
-          <h2>Join us now!
-          </h2>
-          <p>To join this dynamic group of web developers, fill in the application below and you will be contacted shortly.
-          </p>
-		  <form method="get">
-		    Which position are you applying for?<br>
-		    <select size="1" name="position" id="position">
-			  <option> </option>
-			  <option value="project manager">Project Manager</option>
-			  <option value="graphic designer">Graphic Designer</option>
-			  <option value="webdeveloper">Web Developer</option>
-			  <option value="database administrator">Database Administrator</option>
-		    </select><br><br> 
-		    Passed COMP 1536?<br>
-		    <input type="radio" name="passedcomp" id="yes" value="yes">Yes<br>
-		    <input type="radio" name="passedcomp" id="no" value="no">No<br><br>
-            Attach resume<br>
-            <input type="file" name="resume" id="resume" value="Browse.."><br><br>
-            <div id="subtitle">Word or PDF Documents only</div>
-			Email Address<br>
-			<input type="text" name="email" id="email"><br><br>
-		    Any additional information for us<br>
-		    <textarea name="addinfo" id="addinfo"></textarea><br><br>
-		    <input type="submit" value="Sign Me Up!">
-		  </form>
+		<h1>Who we are</h1>
+		<p> We are a group of CST students, past and present, offering our website creation services to non-profit
+		organizations in the lower mainland. We work in teams made up of experts in design, development, and project management.</p>
+		<div class="hr"></div>
+		<h2>Join us now!</h2>
+		<p>To join this dynamic group of web developers, fill in the application below and you will be contacted shortly. </p>
+        <div id ="join">
+			<form action = "http://webdevfoundations.net/scripts/formdemo.asp" method = "post">
+				<label>Which position are you applying for?&nbsp;<span>*</span></label><br>
+					<select name="position">
+						<option value="manager">Project Manager</option>
+						<option value="designer">Graphic Designer</option>
+						<option value="developer">Web Developer</option>
+						<option value="admin">Database Administrator</option>
+					</select>
+				<div class="spacing"></div><br>
+				<label>Passed Comp 1536?&nbsp;<span>*</span></label><br>
+					<input class="passed" type="radio" name="radio" value="yes">Yes<br>
+					<input class="passed" type="radio" name="radio" value="no">No<br>
+				<div class="spacing"></div><br>
+				<label>Earliest start date?&nbsp;<span>*</span></label><br>
+					<div class="subtext"><input type="text" name="month" size="2"> /<p>MM</p></div>
+					<div class="subtext"><input type="text" name="day" size="2"> /<p>DD</p></div>
+					<div class="subtext"><input type="text" name="year" size="5"><p>YYYY</p></div>
+				<div class="spacing"></div><br>
+				<label>Portfolio URL</label><br>
+					<input type="url" name="portfolio" size="60" value="https://">
+				<div class="spacing"></div><br>
+				<label>Attach Resume</label><br>
+					<input type="file" name="resume" id="resume"> 
+				<br><p>Word or PDF Documents Only</p><br>
+				<label>Name&nbsp;<span>*</span></label><br>
+					<div class="subtext"><input type="text" name="first" size="10"><p>First</p></div>
+					<div class="subtext"><input type="text" name="last" size="20"><p>Last</p></div>
+				<div class="spacing"></div><br>
+				<label>Email Address&nbsp;<span>*</span></label><br>
+					<input type="email" name="email" size="60">
+				<div class="spacing"></div><br>
+				<label>Phone&nbsp;<span>*</span></label><br>
+					<div class="subtext"><input type="text" name="area" size="5"><p>(###)</p></div>
+					<div class="subtext"><input type="text" name="middle" size="5"><p>###</p></div>
+					<div class="subtext"><input type="text" name="end" size="7"><p>####</p></div>
+				<div class="spacing"></div><br>
+				<label>Any additional information for us</label>
+					<textarea name="extra" rows="10" cols="50"></textarea><br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
         </div> <!-- right_column -->
       </div> <!-- content_interior -->
-      <br >
-	  <div class="brdiv"></div>
+      <br clear="all"/>
     </div> <!-- content_body -->
 	
 	<!-- footer-->
     <div class="footer">
       <div class="footer-inner">
-        <div style="text-align:center;">Copyright &copy; 2016 Elisa Chu & Teresa Guan | Designed by: 
-          <a href="#">E. Chu & T. Guan
+        <div style="text-align:center;">Copyright &copy; 2010 YourName | Designed by: 
+          <a href="#">A. Student
           </a>
-          <!-- Validation Icons -->
-          <p><img src="images/W3C_HTML5_certified.png" alt="VALID HTML5!" height="45" width="128"><a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"></a></p>
         </div>
       </div> <!-- footer-inner -->
-      <br>
+      <br clear="all"/>
     </div> <!-- footer -->
   </body>
 </html>

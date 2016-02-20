@@ -1,0 +1,41 @@
+span {
+	color:#b30000;
+}
+
+input[type=text]:focus {
+    background-color: lightgrey;
+}
+
+#join {
+	padding: 2px;
+	margin-left:5px;
+}
+
+#join select, input{
+	margin-top:3px;
+}
+
+#join p {
+	font-size:80%;
+	color:grey;
+	font-weight:200;
+	padding:0;
+	margin:0;
+}
+
+#join label {
+	font-size:90%;
+	font-weight:bold;
+}
+
+.subtext {
+	display:inline-block;
+}
+
+.spacing {
+	margin-bottom:5px;
+}
+
+.passed {
+	margin:10px;
+}
