@@ -26,4 +26,5 @@ tr:nth-of-type(even) {
 iframe {
     margin-left: 4.5em;
     margin-top: 1em;
+    border-style: none;
 }
