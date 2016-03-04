@@ -6,6 +6,139 @@
 		</title>
 		<link href="style.css" rel="stylesheet" type="text/css"/>
 		<link href="form.css" rel="stylesheet" type="text/css"/>
+		<script>
+			<!--
+			//Substitutes document.getElementById with $(id).
+			function $(id) {
+				var element = document.getElementById(id);
+				if (element == null)
+					alert('Programmer error: ' + id + 'does not exist.');
+				return element;
+			}
+			
+			//Validate the position dropdown options.
+			function testPositionValid(id) {
+				return ($(id).selectedIndex != 0);
+			}
+			
+			//Warns user if they did not pick a position.
+			function warnPositionInvalid(id) {
+				if (!testPositionValid(id))
+					alert("You must select a position!");
+			}
+			
+			//Validates if user passed COMP 1536.
+			function testPassedWebValid(id) {
+				return ($(id).checked);
+			}
+			
+			//Warns user if they are not considered for position.
+			function warnPassedWebInvalid(id) {
+				if (testPassedWebValid(id))
+					alert("You must pass this course to be considered for the position.")
+			}
+			
+			//Validates correct date input.
+			function testStartDate(id) {
+				var month = $(id + '_0').value;
+				var day = $(id + '_1').value;
+				var year = $(id + '_2').value;
+				
+				if (month != "" && day != "" && year != "") {
+					if (month >= 1 && month <= 12 && day >= 1 && day <= 31 && year >= 2013 && year <= 2999) {
+						return true;
+					} else {
+						return false;
+					}					
+				} else {
+					return true;
+				}
+			}
+			
+			//Warns user if date is invalid.
+			function warnStartDate(id) {
+				if (!testStartDate(id)) {
+					alert("Enter a valid date.");
+				}
+			}
+			
+			//Validates for correct file type for resume.
+			function testResume(id) {
+				var x = $(id).value;
+				var str = x.substring(x.length - 3)
+				if (str == "doc" || str == "ocx" || str == "pdf") {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			
+			//Warns user of wrong file type.
+			function warnResume(id) {
+				if (!testResume(id)) {
+					alert("Resume must be a .doc, .docx, or .pdf file.");
+				}
+			}
+			
+			//Validates name input.
+			function testName(id) {
+				var str1 = $(id + '_0').value;
+				var str2 = $(id + '_1').value;
+				if (str1.length > 0 && str2.length > 0) {
+					return true;
+				}
+			}
+			
+			//Warns user of missing name.
+			function warnName(id) {
+				if (!testName(id)) {
+					alert("Enter your name.");
+				} 
+			}
+			
+			//Validates for correct email address.
+			function testEmail(id) {
+				var x = $(id).value;
+				var str = x.substring(x.length - 3)
+				if (str == "com" || str == ".ca" || str == "org") {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			
+			//Warns user of incorrect email address.
+			function warnEmail(id) {
+				if (!testEmail(id)) {
+					alert("Email must end with .com, .ca, or .org.");
+				}
+			}
+			
+			//Validates for valid phone number.
+			function testPhone(id) {
+				var area = $(id + '_0').value;
+				var num1 = $(id + '_1').value;
+				var num2 = $(id + '_2').value;
+				
+				if (area != "" && num1 != "" && num2 != "") {
+					if (area >= 100 && area <= 999 && num1 >= 100 && num1 <= 999 && num2 >= 1000 && num2 <= 9999) {
+						return true;
+					} else {
+						return false;
+					}					
+				} else {
+					return true;
+				}
+			}
+			
+			//Warns user of invalid phone number.
+			function warnPhone(id) {
+				if (!testPhone(id)) {
+					alert("Enter a valid phone number.");
+				}
+			}
+			//-->
+		</script>
 	</head>
   
   <body>
@@ -64,8 +197,9 @@
 			<form action = "http://webdevfoundations.net/scripts/formdemo.asp" method = "post">
 				
 				<!-- Drop down list for available positions interested -->
-				<label>Which position are you applying for?&nbsp;<span>*</span></label><br>
-					<select name="position">
+				<label for="selPosition">Which position are you applying for?&nbsp;<span>*</span></label><br>
+					<select name="position" id="selPosition" onchange="warnPositionInvalid('selPosition')">
+						<option>&nbsp;</option>
 						<option value="manager">Project Manager</option>
 						<option value="designer">Graphic Designer</option>
 						<option value="developer">Web Developer</option>
@@ -76,61 +210,61 @@
 				<div class="spacing"></div><br> 
 				
 				<!-- Input checking if applicant has passed the course -->
-				<label>Passed Comp 1536?&nbsp;<span>*</span></label><br>
-					<input class="passed" type="radio" name="radio" value="yes">Yes<br>
-					<input class="passed" type="radio" name="radio" value="no">No<br>
+				<label for="radPassedWeb_0">Passed Comp 1536?&nbsp;<span>*</span></label><br>
+					<input class="passed" type="radio" name="passed" id="radPassedWeb_0" onblur="warnPassedWebInvalid('radPassedWeb_1')" value="yes">Yes<br>
+					<input class="passed" type="radio" name="passed" id="radPassedWeb_1" onblur="warnPassedWebInvalid('radPassedWeb_1')" value="no">No<br>
 				
 				<!-- Empty div for spacing -->
 				<div class="spacing"></div><br> 
 				
 				<!-- Input for earliest start date in MM/DD/YYYY -->
-				<label>Earliest start date?&nbsp;<span>*</span></label><br>
-					<div class="subtext"><input type="text" name="month" size="2"> /<p>MM</p></div>
-					<div class="subtext"><input type="text" name="day" size="2"> /<p>DD</p></div>
-					<div class="subtext"><input type="text" name="year" size="5"><p>YYYY</p></div>
+				<label for="txtStartDate_0">Earliest start date?&nbsp;<span>*</span></label><br>
+					<div class="subtext"><input type="text" name="month" id="txtStartDate_0" onchange="warnStartDate('txtStartDate')" size="2"> /<p>MM</p></div>
+					<div class="subtext"><input type="text" name="day" id="txtStartDate_1" onchange="warnStartDate('txtStartDate')" size="2"> /<p>DD</p></div>
+					<div class="subtext"><input type="text" name="year" id="txtStartDate_2" onchange="warnStartDate('txtStartDate')" size="5"><p>YYYY</p></div>
 				
 				<!-- Empty div for spacing -->
 				<div class="spacing"></div><br> 
 				
 				<!-- Input for a URL linking to portfolio -->
-				<label>Portfolio URL</label><br>
-					<input type="url" name="portfolio" size="60" placeholder="https://">
+				<label for="txtPortfolio">Portfolio URL</label><br>
+					<input type="url" name="portfolio" id="txtPortfolio" size="60" placeholder="https://">
 					
 				<!-- Empty div for spacing -->
 				<div class="spacing"></div><br> 
 				
 				<!-- Input for a resume in PDF or Word format -->
-				<label>Attach Resume</label><br>
-					<input type="file" name="resume" id="resume"> 					
+				<label for="filResume">Attach Resume</label><br>
+					<input type="file" name="resume" id="filResume" onchange="warnResume('filResume')"> 					
 					<br><p>Word or PDF Documents Only</p><br> <!-- sub text -->
 				
 				<!-- Input for full name -->
 				<label>Name&nbsp;<span>*</span></label><br>
-					<div class="subtext"><input type="text" name="first" size="10"><p>First</p></div>
-					<div class="subtext"><input type="text" name="last" size="20"><p>Last</p></div>
+					<div class="subtext"><input type="text" name="first" id="txtName_0" onblur="warnName('txtName')" size="10"><p>First</p></div>
+					<div class="subtext"><input type="text" name="last" id="txtName_1" onblur="warnName('txtName')" size="20"><p>Last</p></div>
 				
 				<!-- Empty div for spacing -->
 				<div class="spacing"></div><br> 
 				
 				<!-- Input for email -->
-				<label>Email Address&nbsp;<span>*</span></label><br>
-					<input type="email" name="email" size="60">
+				<label for="txtEmail">Email Address&nbsp;<span>*</span></label><br>
+					<input type="email" name="email" id="txtEmail" onblur="warnEmail('txtEmail')" size="60">
 					
 				<!-- Empty div for spacing -->
 				<div class="spacing"></div><br> 
 				
 				<!-- Input for phone number -->
-				<label>Phone&nbsp;<span>*</span></label><br>
-					<div class="subtext"><input type="text" name="area" size="5"><p>(###)</p></div>
-					<div class="subtext"><input type="text" name="middle" size="5"><p>###</p></div>
-					<div class="subtext"><input type="text" name="end" size="7"><p>####</p></div>
+				<label for="txtPhone_0">Phone&nbsp;<span>*</span></label><br>
+					<div class="subtext"><input type="text" name="area" id="txtPhone_0" onblur="warnPhone('txtPhone')" size="5"><p>(###)</p></div>
+					<div class="subtext"><input type="text" name="middle" id="txtPhone_1" onblur="warnPhone('txtPhone')" size="5"><p>###</p></div>
+					<div class="subtext"><input type="text" name="end" id="txtPhone_2" onblur="warnPhone('txtPhone')" size="7"><p>####</p></div>
 				
 				<!-- Empty div for spacing -->
 				<div class="spacing"></div><br> 
 				
 				<!-- Input for additional information -->
-				<label>Any additional information for us</label>
-					<textarea name="extra" rows="10" cols="45"></textarea><br>
+				<label for="taComments">Any additional information for us</label>
+					<textarea name="extra" id="taComments" rows="10" cols="45"></textarea><br>
 					
 				<!-- Submit form -->	
 				<input type="submit" value="Submit">
