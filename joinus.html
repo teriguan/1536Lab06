@@ -21,21 +21,9 @@
 				return ($(id).selectedIndex != 0);
 			}
 			
-			//Warns user if they did not pick a position.
-			function warnPositionInvalid(id) {
-				if (!testPositionValid(id))
-					alert("You must select a position!");
-			}
-			
 			//Validates if user passed COMP 1536.
 			function testPassedWebValid(id) {
-				return ($(id).checked);
-			}
-			
-			//Warns user if they are not considered for position.
-			function warnPassedWebInvalid(id) {
-				if (testPassedWebValid(id))
-					alert("You must pass this course to be considered for the position.")
+				return (!$(id).checked);
 			}
 			
 			//Validates correct date input.
@@ -55,63 +43,31 @@
 				}
 			}
 			
-			//Warns user if date is invalid.
-			function warnStartDate(id) {
-				if (!testStartDate(id)) {
-					alert("Enter a valid date.");
-				}
-			}
-			
 			//Validates for correct file type for resume.
 			function testResume(id) {
-				var x = $(id).value;
-				var str = x.substring(x.length - 3)
-				if (str == "doc" || str == "ocx" || str == "pdf") {
-					return true;
-				} else {
-					return false;
-				}
-			}
-			
-			//Warns user of wrong file type.
-			function warnResume(id) {
-				if (!testResume(id)) {
-					alert("Resume must be a .doc, .docx, or .pdf file.");
-				}
+				var length = $(id).value.length;
+				return $(id).value.substring(length-4) == ".doc" 
+				|| $(id).value.substring(length-5) == ".docx" 
+				|| $(id).value.substring(length-4) == ".pdf";
 			}
 			
 			//Validates name input.
 			function testName(id) {
 				var str1 = $(id + '_0').value;
 				var str2 = $(id + '_1').value;
-				if (str1.length > 0 && str2.length > 0) {
-					return true;
+				return (str1.length > 0 && str2.length > 0);
 				}
-			}
-			
-			//Warns user of missing name.
-			function warnName(id) {
-				if (!testName(id)) {
-					alert("Enter your name.");
-				} 
 			}
 			
 			//Validates for correct email address.
 			function testEmail(id) {
-				var x = $(id).value;
-				var str = x.substring(x.length - 3)
-				if (str == "com" || str == ".ca" || str == "org") {
-					return true;
-				} else {
+				var length = $(id).value.length;
+				if (length > 0) {
+					return $(id).value.substring(length-4) == ".com" 
+					|| $(id).value.substring(length-3) == ".ca" 
+					|| $(id).value.substring(length-4) == ".org"; 
+				} else 
 					return false;
-				}
-			}
-			
-			//Warns user of incorrect email address.
-			function warnEmail(id) {
-				if (!testEmail(id)) {
-					alert("Email must end with .com, .ca, or .org.");
-				}
 			}
 			
 			//Validates for valid phone number.
@@ -131,10 +87,14 @@
 				}
 			}
 			
-			//Warns user of invalid phone number.
-			function warnPhone(id) {
-				if (!testPhone(id)) {
-					alert("Enter a valid phone number.");
+			function formValidate() {
+			    if (testPositionValid(id) && testPassedWebValid(id) 
+				&& testStartDate(id) && testResume(id) 
+				&& testName(id) && testEmail(id) && testPhone(id) ) {
+					return true;
+				} else {
+					alert("Form input(s) invalid.");
+					return false;
 				}
 			}
 			//-->
