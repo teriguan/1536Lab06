@@ -23,7 +23,7 @@
 			
 			//Validates if user passed COMP 1536.
 			function testPassedWebValid(id) {
-				return (!$(id).checked);
+				return ($(id + '_0').checked && !$(id + '_1').checked);
 			}
 			
 			//Validates correct date input.
@@ -89,12 +89,13 @@
 			
 			function formValidate() {
 			    if (testPositionValid("selPosition") 
-                    && testPassedWebValid("radPassedWeb_1")
+                    && testPassedWebValid("radPassedWeb")
                     && testStartDate("txtStartDate")
                     && testResume("filResume")
                     && testName("txtName")
                     && testEmail("txtEmail")
-                    && testPhone("txtPhone")) {
+                    && testPhone("txtPhone")
+                    ) {
 					return true;
 				} else {
 					alert("Form input(s) invalid.");
