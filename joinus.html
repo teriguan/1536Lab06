@@ -113,7 +113,9 @@
                 var area = $(id + '_0').value;
 				var num1 = $(id + '_1').value;
 				var num2 = $(id + '_2').value;
-
+                var patt1 = /^[1-9][0-9][0-9](?!.)/;
+                var patt2 = /^[1-9][0-9][0-9][0-9](?!.)/;
+                return (patt1.test(area) && patt1.test(num1) && patt2.test(num2));
             }
 			
 			function formValidate() {
@@ -123,7 +125,7 @@
                     && testResume_2("filResume")
                     && testName_2("txtName")
                     && testEmail("txtEmail")
-                    && testPhone("txtPhone")) {
+                    && testPhone_2("txtPhone")) {
 					return true;
 				} else if (!testPositionValid("selPosition")){
 				    $('itmPosition').className= "error";
@@ -179,7 +181,7 @@
                     $('itmEmail').className= "error";
                     $('errEmail').innerHTML= "Email must end with .com, .ca , or .org.";
                     return false;
-                } else if (!testPhone("txtPhone")){
+                } else if (!testPhone_2("txtPhone")){
 				    $('itmPosition').className= "";
                     $('errPosition').innerHTML= "";
                     $('itmPassedWeb').className= "";
