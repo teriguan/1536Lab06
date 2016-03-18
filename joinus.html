@@ -57,14 +57,29 @@
 				|| $(id).value.substring(length-5) == ".docx" 
 				|| $(id).value.substring(length-4) == ".pdf";
 			}
+
+            function testResume_2(id) {
+                var str = $(id).value;
+                var patt1 = /.doc$/g;
+                var patt2 = /.docx$/g;
+                var patt3 = /.pdf$/g;
+                return patt1.test(str) || patt2.test(str) || patt3.test(str);
+
+            }
 			
 			//Validates name input.
 			function testName(id) {
 				var str1 = $(id + '_0').value;
 				var str2 = $(id + '_1').value;
 				return (str1.length > 0 && str2.length > 0);
-				
 			}
+
+            function testName_2(id) {
+                var str1 = $(id + '_0').value;
+				var str2 = $(id + '_1').value;
+                var patt = /[A-z]/g;
+                return patt.test(str1) && patt.test(str2);
+            }
 			
 			//Validates for correct email address.
 			function testEmail(id) {
@@ -93,16 +108,22 @@
 					return true;
 				}
 			}
+
+            function testPhone_2(id) {
+                var area = $(id + '_0').value;
+				var num1 = $(id + '_1').value;
+				var num2 = $(id + '_2').value;
+
+            }
 			
 			function formValidate() {
 			    if (testPositionValid("selPosition") 
                     && testPassedWebValid("radPassedWeb")
                     && testStartDate("txtStartDate")
-                    && testResume("filResume")
-                    && testName("txtName")
+                    && testResume_2("filResume")
+                    && testName_2("txtName")
                     && testEmail("txtEmail")
-                    && testPhone("txtPhone")
-                    ) {
+                    && testPhone("txtPhone")) {
 					return true;
 				} else if (!testPositionValid("selPosition")){
 				    $('itmPosition').className= "error";
@@ -122,7 +143,7 @@
                     $('itmStartDate').className= "error";
                     $('errStartDate').innerHTML= "You must enter a valid date.";
                     return false;
-                } else if (!testResume("filResume")){
+                } else if (!testResume_2("filResume")){
                     $('itmPosition').className= "";
                     $('errPosition').innerHTML= "";
                     $('itmPassedWeb').className= "";
@@ -132,7 +153,7 @@
                     $('itmResume').className= "error";
                     $('errResume').innerHTML= "Your resume must a .doc, .docx, or .pdf file.";
                     return false;
-                } else if (!testName("txtName")){
+                } else if (!testName_2("txtName")) {
 				    $('itmPosition').className= "";
                     $('errPosition').innerHTML= "";
                     $('itmPassedWeb').className= "";
