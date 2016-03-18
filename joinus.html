@@ -7,7 +7,7 @@
 		<link href="style.css" rel="stylesheet" type="text/css"/>
 		<link href="form.css" rel="stylesheet" type="text/css"/>
         <style>
-            div.error {
+            .error {
                 display: block;
                 border: 1px solid #f9b9b2;
                 background-color: #ffdfdf;
@@ -104,10 +104,79 @@
                     && testPhone("txtPhone")
                     ) {
 					return true;
-				} else {
-					alert("Form input(s) invalid.");
-					return false;
-				}
+				} else if (!testPositionValid("selPosition")){
+				    $('itmPosition').className= "error";
+                    $('errPosition').innerHTML= "You must select a position.";
+                    return false;  
+                } else if (!testPassedWebValid("radPassedWeb")){
+				    $('itmPosition').className= "";
+                    $('errPosition').innerHTML= "";
+                    $('itmPassedWeb').className= "error";
+                    $('errPassedWeb').innerHTML= "You must pass COMP 1536 to be eligible.";
+                    return false;
+                } else if (!testStartDate("txtStartDate")){
+				    $('itmPosition').className= "";
+                    $('errPosition').innerHTML= "";
+                    $('itmPassedWeb').className= "";
+                    $('errPassedWeb').innerHTML= "";
+                    $('itmStartDate').className= "error";
+                    $('errStartDate').innerHTML= "You must enter a valid date.";
+                    return false;
+                } else if (!testResume("filResume")){
+                    $('itmPosition').className= "";
+                    $('errPosition').innerHTML= "";
+                    $('itmPassedWeb').className= "";
+                    $('errPassedWeb').innerHTML= "";
+				    $('itmStartDate').className= "";
+                    $('errStartDate').innerHTML= "";
+                    $('itmResume').className= "error";
+                    $('errResume').innerHTML= "Your resume must a .doc, .docx, or .pdf file.";
+                    return false;
+                } else if (!testName("txtName")){
+				    $('itmPosition').className= "";
+                    $('errPosition').innerHTML= "";
+                    $('itmPassedWeb').className= "";
+                    $('errPassedWeb').innerHTML= "";
+				    $('itmStartDate').className= "";
+                    $('errStartDate').innerHTML= "";
+                    $('itmResume').className= "";
+                    $('errResume').innerHTML= "";
+                    $('itmName').className= "error";
+                    $('errName').innerHTML= "Enter your name.";
+                    return false;
+                } else if (!testEmail("txtEmail")){
+                    $('itmPosition').className= "";
+                    $('errPosition').innerHTML= "";
+                    $('itmPassedWeb').className= "";
+                    $('errPassedWeb').innerHTML= "";
+				    $('itmStartDate').className= "";
+                    $('errStartDate').innerHTML= "";
+                    $('itmResume').className= "";
+                    $('errResume').innerHTML= "";
+                    $('itmName').className= "";
+                    $('errName').innerHTML= "";
+                    $('itmEmail').className= "error";
+                    $('errEmail').innerHTML= "Email must end with .com, .ca , or .org.";
+                    return false;
+                } else if (!testPhone("txtPhone")){
+				    $('itmPosition').className= "";
+                    $('errPosition').innerHTML= "";
+                    $('itmPassedWeb').className= "";
+                    $('errPassedWeb').innerHTML= "";
+				    $('itmStartDate').className= "";
+                    $('errStartDate').innerHTML= "";
+                    $('itmResume').className= "";
+                    $('errResume').innerHTML= "";
+                    $('itmName').className= "";
+                    $('errName').innerHTML= "";
+                    $('itmEmail').className= "";
+                    $('errEmail').innerHTML= "";
+                    $('itmPhone').className= "error";
+                    $('errPhone').innerHTML= "Enter a valid phone number.";
+                    return false;
+                } else {
+                    return false;
+                }
 			}
 			//-->
 		</script>
@@ -233,7 +302,7 @@
 				<!-- Input for full name -->
 				<label>Name&nbsp;<span>*</span></label><br>
 					<div id="itmName">
-                        <div id="errPosition">
+                        <div id="errName">
                             <!--empty to begin, filled by js-->
                         </div>
                         <div class="subtext"><input type="text" name="first" id="txtName_0" size="10"><p>First</p></div>
@@ -246,7 +315,7 @@
 				<!-- Input for email -->
 				<label for="txtEmail">Email Address&nbsp;<span>*</span></label><br>
 					<div id="itmEmail">
-                        <div id="errPosition">
+                        <div id="errEmail">
                             <!--empty to begin, filled by js-->
                         </div>
                         <input type="email" name="email" id="txtEmail" onblur="warnEmail('txtEmail')" size="60">
