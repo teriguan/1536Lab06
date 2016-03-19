@@ -114,16 +114,75 @@
 				var num1 = $(id + '_1').value;
 				var num2 = $(id + '_2').value;
 				
-				var a = /[0-9]{3}/;
-				var b = /[0-9]{3}/;
-				var c = /[0-9]{4}/;
+				var patt1 = /^[1-9][0-9][0-9](?!.)/;
+				var patt2 = /^[1-9][0-9][0-9][0-9](?!.)/;
 				
-				return a.test(area) && b.test(num1) && c.test(num2);
-
+				return patt1.test(area) && patt1.test(num1) && patt2.test(num2);
             }
 			
-			function formValidate() {
-			    if (testPositionValid("selPosition") 
+			function formValidate() {				
+				var test = false;
+			    if (!testPositionValid("selPosition")) {
+					$('itmPosition').className= "error";
+                    $('errPosition').innerHTML= "You must select a position.";
+					return false;
+				} else {
+					$('itmPosition').className= "none";
+                    $('errPosition').innerHTML= "";
+				} 
+				if (!testPassedWebValid("radPassedWeb")){
+                    $('itmPassedWeb').className= "error";
+                    $('errPassedWeb').innerHTML= "You must pass COMP 1536 to be eligible.";
+                    return false;
+                } else {
+					$('itmPassedWeb').className= "none";
+                    $('errPassedWeb').innerHTML= "";
+				}
+				
+				if (!testStartDate("txtStartDate")){
+                    $('itmStartDate').className= "error";
+                    $('errStartDate').innerHTML= "You must enter a valid date.";
+                    return false;
+                } else {
+				    $('itmStartDate').className= "";
+                    $('errStartDate').innerHTML= "";
+				}
+				
+				if (!testResume_2("filResume")){
+                    $('itmResume').className= "error";
+                    $('errResume').innerHTML= "Your resume must a .doc, .docx, or .pdf file.";
+					return false;
+				} else {
+					$('itmResume').className= "";
+                    $('errResume').innerHTML= "";
+				}
+				
+				if (!testName_2("txtName")) {
+                    $('itmName').className= "error";
+                    $('errName').innerHTML= "Enter your name.";
+					return false;
+                } else {
+					$('itmName').className= "";
+                    $('errName').innerHTML= "";
+				}
+				if (!testEmail("txtEmail")){
+                    $('itmEmail').className= "error";
+                    $('errEmail').innerHTML= "Email must end with .com, .ca , or .org.";
+					return false;
+                } else {
+					$('itmEmail').className= "";
+                    $('errEmail').innerHTML= "";
+				}
+				
+				if (!testPhone_2("txtPhone")){
+                    $('itmPhone').className= "error";
+                    $('errPhone').innerHTML= "Enter a valid phone number.";
+					return false;
+				} else {
+                    $('itmPhone').className= "";
+                    $('errPhone').innerHTML= "";
+                }
+				if (testPositionValid("selPosition") 
                     && testPassedWebValid("radPassedWeb")
                     && testStartDate("txtStartDate")
                     && testResume_2("filResume")
@@ -131,87 +190,7 @@
                     && testEmail("txtEmail")
                     && testPhone_2("txtPhone")) {
 					return true;
-				} else if (!testPositionValid("selPosition")){
-				    $('itmPosition').className= "error";
-                    $('errPosition').innerHTML= "You must select a position.";
-                    return false;  
-                } else if (!testPassedWebValid("radPassedWeb")){
-				    $('itmPosition').className= "";
-                    $('errPosition').innerHTML= "";
-                    $('itmPassedWeb').className= "error";
-                    $('errPassedWeb').innerHTML= "You must pass COMP 1536 to be eligible.";
-                    return false;
-                } else if (!testStartDate("txtStartDate")){
-				    $('itmPosition').className= "";
-                    $('errPosition').innerHTML= "";
-                    $('itmPassedWeb').className= "";
-                    $('errPassedWeb').innerHTML= "";
-                    $('itmStartDate').className= "error";
-                    $('errStartDate').innerHTML= "You must enter a valid date.";
-					$('itmResume').className= "";
-                    $('errResume').innerHTML= "";
-                    $('itmName').className= "";
-                    $('errName').innerHTML= "";
-                    $('itmEmail').className= "";
-                    $('errEmail').innerHTML= "";
-                    $('itmPhone').className= "";
-                    $('errPhone').innerHTML= "";
-                    return false;
-                } else if (!testResume_2("filResume")){
-                    $('itmPosition').className= "";
-                    $('errPosition').innerHTML= "";
-                    $('itmPassedWeb').className= "";
-                    $('errPassedWeb').innerHTML= "";
-				    $('itmStartDate').className= "";
-                    $('errStartDate').innerHTML= "";
-                    $('itmResume').className= "error";
-                    $('errResume').innerHTML= "Your resume must a .doc, .docx, or .pdf file.";
-                    return false;
-                } else if (!testName_2("txtName")) {
-				    $('itmPosition').className= "";
-                    $('errPosition').innerHTML= "";
-                    $('itmPassedWeb').className= "";
-                    $('errPassedWeb').innerHTML= "";
-				    $('itmStartDate').className= "";
-                    $('errStartDate').innerHTML= "";
-                    $('itmResume').className= "";
-                    $('errResume').innerHTML= "";
-                    $('itmName').className= "error";
-                    $('errName').innerHTML= "Enter your name.";
-                    return false;
-                } else if (!testEmail("txtEmail")){
-                    $('itmPosition').className= "";
-                    $('errPosition').innerHTML= "";
-                    $('itmPassedWeb').className= "";
-                    $('errPassedWeb').innerHTML= "";
-				    $('itmStartDate').className= "";
-                    $('errStartDate').innerHTML= "";
-                    $('itmResume').className= "";
-                    $('errResume').innerHTML= "";
-                    $('itmName').className= "";
-                    $('errName').innerHTML= "";
-                    $('itmEmail').className= "error";
-                    $('errEmail').innerHTML= "Email must end with .com, .ca , or .org.";
-                    return false;
-                } else if (!testPhone_2("txtPhone")){
-				    $('itmPosition').className= "";
-                    $('errPosition').innerHTML= "";
-                    $('itmPassedWeb').className= "";
-                    $('errPassedWeb').innerHTML= "";
-				    $('itmStartDate').className= "";
-                    $('errStartDate').innerHTML= "";
-                    $('itmResume').className= "";
-                    $('errResume').innerHTML= "";
-                    $('itmName').className= "";
-                    $('errName').innerHTML= "";
-                    $('itmEmail').className= "";
-                    $('errEmail').innerHTML= "";
-                    $('itmPhone').className= "error";
-                    $('errPhone').innerHTML= "Enter a valid phone number.";
-                    return false;
-				} else {
-                    return false;
-                }
+				}
 			}
 			//-->
 		</script>
@@ -270,7 +249,7 @@
 		<h2>Join us now!</h2>
 		<p>To join this dynamic group of web developers, fill in the application below and you will be contacted shortly. </p>
         <div id ="join"> <!-- Join Form -->
-			<form onsubmit="return formValidate()" action = "./registered.php" method = "post">
+			<form onsubmit="return formValidate()" action = "http://webdevfoundations.net/scripts/formdemo.asp" method = "post">
 				
 				<!-- Drop down list for available positions interested -->
 				<label for="selPosition">Which position are you applying for?&nbsp;<span>*</span></label><br>
@@ -378,7 +357,7 @@
 					<textarea name="extra" id="taComments" rows="10" cols="45"></textarea><br>
 					
 				<!-- Submit form -->	
-				<input type="submit" value="Submit" name = "submit">
+				<input type="submit" value="Submit" name="submit">
 			</form>
 		</div>
         </div> <!-- right_column -->
