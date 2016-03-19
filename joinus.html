@@ -114,10 +114,9 @@
 				var num1 = $(id + '_1').value;
 				var num2 = $(id + '_2').value;
 				
-				var patt1 = /^[1-9][0-9][0-9](?!.)/;
-				var patt2 = /^[1-9][0-9][0-9][0-9](?!.)/;
-				
-				return patt1.test(area) && patt1.test(num1) && patt2.test(num2);
+                var patt1 = /^[1-9][0-9][0-9](?!.)/;
+                var patt2 = /^[1-9][0-9][0-9][0-9](?!.)/;
+                return (patt1.test(area) && patt1.test(num1) && patt2.test(num2));
             }
 			
 			function formValidate() {				
