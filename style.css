@@ -39,6 +39,11 @@ div .header_interior img {float:left; margin-right:10px;}
 	background-color:#F6F1DE;
 }
 
+/* makes the footer sticky on thank you page */
+.content_body#stickyfooter {
+	min-height:410px;
+}
+
 .content_interior{
 	width:760px;
 	margin-left:auto;

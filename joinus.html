@@ -144,6 +144,14 @@
                     $('errPassedWeb').innerHTML= "";
                     $('itmStartDate').className= "error";
                     $('errStartDate').innerHTML= "You must enter a valid date.";
+					$('itmResume').className= "";
+                    $('errResume').innerHTML= "";
+                    $('itmName').className= "";
+                    $('errName').innerHTML= "";
+                    $('itmEmail').className= "";
+                    $('errEmail').innerHTML= "";
+                    $('itmPhone').className= "";
+                    $('errPhone').innerHTML= "";
                     return false;
                 } else if (!testResume_2("filResume")){
                     $('itmPosition').className= "";
@@ -197,7 +205,7 @@
                     $('itmPhone').className= "error";
                     $('errPhone').innerHTML= "Enter a valid phone number.";
                     return false;
-                } else {
+				} else {
                     return false;
                 }
 			}
@@ -258,7 +266,7 @@
 		<h2>Join us now!</h2>
 		<p>To join this dynamic group of web developers, fill in the application below and you will be contacted shortly. </p>
         <div id ="join"> <!-- Join Form -->
-			<form action = "http://webdevfoundations.net/scripts/formdemo.asp" method = "post" onsubmit="return formValidate()">
+			<form onsubmit="return formValidate()" action = "./registered.php" method = "post">
 				
 				<!-- Drop down list for available positions interested -->
 				<label for="selPosition">Which position are you applying for?&nbsp;<span>*</span></label><br>
@@ -366,7 +374,7 @@
 					<textarea name="extra" id="taComments" rows="10" cols="45"></textarea><br>
 					
 				<!-- Submit form -->	
-				<input type="submit" value="Submit">
+				<input type="submit" value="Submit" name = "submit">
 			</form>
 		</div>
         </div> <!-- right_column -->
