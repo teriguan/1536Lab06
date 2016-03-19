@@ -77,7 +77,7 @@
             function testName_2(id) {
                 var str1 = $(id + '_0').value;
 				var str2 = $(id + '_1').value;
-                var patt = /[A-z]/g;
+                var patt = /^[A-z]+$/;
                 return patt.test(str1) && patt.test(str2);
             }
 			
