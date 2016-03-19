@@ -113,6 +113,12 @@
                 var area = $(id + '_0').value;
 				var num1 = $(id + '_1').value;
 				var num2 = $(id + '_2').value;
+				
+				var a = /[0-9]{3}/;
+				var b = /[0-9]{3}/;
+				var c = /[0-9]{4}/;
+				
+				return a.test(area) && b.test(num1) && c.test(num2);
 
             }
 			
@@ -123,7 +129,7 @@
                     && testResume_2("filResume")
                     && testName_2("txtName")
                     && testEmail("txtEmail")
-                    && testPhone("txtPhone")) {
+                    && testPhone_2("txtPhone")) {
 					return true;
 				} else if (!testPositionValid("selPosition")){
 				    $('itmPosition').className= "error";
@@ -179,7 +185,7 @@
                     $('itmEmail').className= "error";
                     $('errEmail').innerHTML= "Email must end with .com, .ca , or .org.";
                     return false;
-                } else if (!testPhone("txtPhone")){
+                } else if (!testPhone_2("txtPhone")){
 				    $('itmPosition').className= "";
                     $('errPosition').innerHTML= "";
                     $('itmPassedWeb').className= "";
@@ -195,7 +201,7 @@
                     $('itmPhone').className= "error";
                     $('errPhone').innerHTML= "Enter a valid phone number.";
                     return false;
-                } else {
+				} else {
                     return false;
                 }
 			}
@@ -256,7 +262,7 @@
 		<h2>Join us now!</h2>
 		<p>To join this dynamic group of web developers, fill in the application below and you will be contacted shortly. </p>
         <div id ="join"> <!-- Join Form -->
-			<form action = "http://webdevfoundations.net/scripts/formdemo.asp" method = "post" onsubmit="return formValidate()">
+			<form action = "/registered.php" method = "post" onsubmit="return formValidate()">
 				
 				<!-- Drop down list for available positions interested -->
 				<label for="selPosition">Which position are you applying for?&nbsp;<span>*</span></label><br>
@@ -364,7 +370,7 @@
 					<textarea name="extra" id="taComments" rows="10" cols="45"></textarea><br>
 					
 				<!-- Submit form -->	
-				<input type="submit" value="Submit">
+				<input type="submit" value="Submit" name = "submit">
 			</form>
 		</div>
         </div> <!-- right_column -->
