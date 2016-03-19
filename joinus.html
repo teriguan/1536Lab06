@@ -77,7 +77,7 @@
             function testName_2(id) {
                 var str1 = $(id + '_0').value;
 				var str2 = $(id + '_1').value;
-                var patt = /[A-z]/g;
+                var patt = /^[A-z]+$/;
                 return patt.test(str1) && patt.test(str2);
             }
 			
@@ -248,7 +248,7 @@
 		<h2>Join us now!</h2>
 		<p>To join this dynamic group of web developers, fill in the application below and you will be contacted shortly. </p>
         <div id ="join"> <!-- Join Form -->
-			<form onsubmit="return formValidate()" action = "http://webdevfoundations.net/scripts/formdemo.asp" method = "post">
+			<form onsubmit="return formValidate()" action = "./registered.php" method = "post">
 				
 				<!-- Drop down list for available positions interested -->
 				<label for="selPosition">Which position are you applying for?&nbsp;<span>*</span></label><br>
