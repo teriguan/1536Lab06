@@ -58,6 +58,7 @@
 				|| $(id).value.substring(length-4) == ".pdf";
 			}
 
+            // Validates resume file using Regular Expression
             function testResume_2(id) {
                 var str = $(id).value;
                 var patt1 = /.doc$/g;
@@ -74,6 +75,7 @@
 				return (str1.length > 0 && str2.length > 0);
 			}
 
+            // Validates name using Regular Expression
             function testName_2(id) {
                 var str1 = $(id + '_0').value;
 				var str2 = $(id + '_1').value;
@@ -109,6 +111,7 @@
 				}
 			}
 
+            // Validate phone number using Regular Expression
             function testPhone_2(id) {
                 var area = $(id + '_0').value;
 				var num1 = $(id + '_1').value;
