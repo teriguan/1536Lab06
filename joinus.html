@@ -119,7 +119,7 @@
             // We need to code in the else statements to undo the class name and error message.
 			function formValidate() {				
 				var test = false;
-			    if (!testPositionValid("selPosition")) {
+			    if (!testPositionValid("selPosition")){
 					$('itmPosition').className= "error";
                     $('errPosition').innerHTML= "You must select a position.";
 					return false;
@@ -154,7 +154,7 @@
                     $('errResume').innerHTML= "";
 				}
 				
-				if (!testName_2("txtName")) {
+				if (!testName_2("txtName")){
                     $('itmName').className= "error";
                     $('errName').innerHTML= "Enter your name.";
 					return false;
